@@ -10,7 +10,7 @@ import HeroPoster5 from '../assets/b.jpg'
 const Hero = () => {
     return (
         <Box mb={"3rem"} >
-
+ 
             <Grid container sx={{
                 userSelect: "none",
                 background: "pink",

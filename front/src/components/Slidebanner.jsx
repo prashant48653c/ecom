@@ -40,7 +40,7 @@ const Slidebanner = () => {
 
                     <Box className="icon-box" sx={{
                         position:"absolute",
-                        bottom:"6rem",
+                        bottom:"6.7rem",
                         display:"flex",
                         gap:"1rem",
                         visibility:"hidden",

@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Slidebanner from './components/Slidebanner'
+import Product from './components/Product'
  
 
 function App() {
@@ -13,8 +14,7 @@ function App() {
   return (
     <>
   <Navbar/>
-  <Hero/>
-    <Slidebanner/>
+  <Product/>
     <Footer/>
  
   </>
