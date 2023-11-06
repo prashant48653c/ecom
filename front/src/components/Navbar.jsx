@@ -7,7 +7,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 const Navbar = () => {
   return (
     <>
-    <AppBar elevation={0} position="fixed" color="default">
+    <AppBar elevation={0} position="sticky"  color="default">
       <Toolbar>
                 
         <Typography variant="h6" flexGrow={1} >
