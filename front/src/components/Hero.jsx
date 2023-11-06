@@ -9,7 +9,7 @@ import HeroPoster5 from '../assets/b.jpg'
 
 const Hero = () => {
     return (
-        <Box>
+        <Box mb={"3rem"} >
 
             <Grid container sx={{
                 userSelect: "none",
@@ -28,7 +28,7 @@ const Hero = () => {
 
                     <img src={HeroPoster} style={{
                         minHeight: "100%",
-                        opacity:".7"
+                        opacity: ".7"
 
                     }} alt="" />
 
@@ -77,7 +77,7 @@ const Hero = () => {
                         <img src={HeroPoster2} style={{
                             width: "100%",
                             minHeight: "100%",
-                            opacity:".5"
+                            opacity: ".5"
                         }} alt="" />
 
                         <Box sx={{
@@ -114,7 +114,7 @@ const Hero = () => {
                         <img src={HeroPoster2} style={{
                             width: "100%",
                             minHeight: "100%",
-                            opacity:".5"
+                            opacity: ".5"
                         }} alt="" />
 
                         <Box sx={{
@@ -150,7 +150,7 @@ const Hero = () => {
                         <img src={HeroPoster2} style={{
                             width: "100%",
                             minHeight: "100%",
-                            opacity:".5"
+                            opacity: ".5"
                         }} alt="" />
 
                         <Box sx={{
@@ -186,7 +186,7 @@ const Hero = () => {
                         <img src={HeroPoster2} style={{
                             width: "100%",
                             minHeight: "100%",
-                            opacity:".5"
+                            opacity: ".5"
                         }} alt="" />
 
                         <Box sx={{

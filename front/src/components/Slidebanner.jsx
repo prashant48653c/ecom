@@ -7,38 +7,58 @@ import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 const Slidebanner = () => {
     let arr=[1,1,1,1,1,1,1,1]
   return (
-    <Container maxWidth={"xl"}>
+    <Container >
         
-        <Grid container  gap={4} >
+        <Grid container justifyContent={"center"} sx={{
+          border:"2px solid green"
+        }} gap={4} >
           
 
           {
             arr.map((elem,i)=>{
              return   (
-                    <Grid  key={i} item lg={2.6} sx={{
+                    <Grid className='product-box' key={i} item lg={2.6} sx={{
                         border:"1px solid blue",
                         minHeight:"25rem",
                         height:"auto",
-                        textAlign:"center"
+                        textAlign:"center",
+                        position:"relative"
                     }} >
                     <img style={{
                         maxHeight:"20rem",
                         position:"relative"
                     }} src={productImg} alt="" />
-                    <Box textAlign={"center"} >
-                    <Typography variant="subtitle1" color="initial">Buttons tweed blazer</Typography>
-                    <Typography variant="subtitle2" color="initial">$ 340</Typography>
-                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5}   />
-
                     <Box sx={{
-                        position:"absolute",
-                         
+                        display:"flex",
+                        alignItems:"center",
+                        flexDirection:"column",
+                        
+                    }} textAlign={"center"} >
+                    <Typography variant="subtitle1" color="initial">Ideal Sunglasses</Typography>
+                    <Typography variant="subtitle2" color="initial">$40</Typography>
+                    <Rating name="half-rating-read" defaultValue={4.5} precision={0.5}   />
 
+                    <Box className="icon-box" sx={{
+                        position:"absolute",
+                        bottom:"6rem",
+                        display:"flex",
+                        gap:"1rem",
+                        visibility:"hidden",
+                        opacity:0.2,
+                        transition:".2s ease-in"
+                      
                     }} >
-                        <IconButton aria-label="buy now icon" >
-                        <ShoppingCartIcon/>   
-                        </IconButton>
-                        <IconButton aria-label="buy now icon" >
+                        <IconButton  disableRipple sx={{
+                          background:"white",
+                          padding:"1rem",
+                           
+                        }} aria-label="buy now icon" >
+                        <ShoppingCartIcon color='primary' />   
+                        </IconButton  >
+                        <IconButton disableRipple sx={{
+                          background:"white",
+                          padding:"1rem"
+                        }} aria-label="buy now icon" >
                         <ZoomOutMapIcon/>  
                         </IconButton>
                     </Box>
