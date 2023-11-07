@@ -1,5 +1,5 @@
-import { Button, Container, Grid, Rating, Stack, Typography } from '@mui/material'
-import React from 'react'
+import { Button, Container, Grid, Rating, Stack, Typography, IconButton } from '@mui/material'
+import React, { useState } from 'react'
 import HeroPoster5 from '../assets/clock.webp'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
@@ -9,6 +9,8 @@ import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Slidebanner from './Slidebanner';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const Product = () => {
   const [alignment, setAlignment] = React.useState('left');
@@ -16,6 +18,10 @@ const Product = () => {
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
+  const [count, setcount] = useState(0)
+  if(count < 0){
+    setcount(0)
+  }
   return (
     <Container >
 
@@ -40,6 +46,14 @@ const Product = () => {
                 <Rating name="half-rating-read" defaultValue={4.5} precision={0.5}   />
                 <Typography variant="h6"  color="initial">$49</Typography>
                 <Typography variant="body1"  color="initial">Inclusive of all taxes</Typography>
+                <IconButton aria-label="minus counter" onClick={()=>setcount(count-1)} >
+                  <RemoveIcon/>
+                </IconButton>
+                 <span style={{padding:"1rem"}} >{count}</span>
+                <IconButton  aria-label="plus counter" onClick={()=>setcount(count+1)}  >
+                 <AddIcon/>
+                </IconButton>
+                <br/>
                 <Button disableElevation variant='contained' startIcon={<ShoppingCartIcon/>} size='large' >Add to cart</Button>
 
 
@@ -75,7 +89,11 @@ const Product = () => {
       </ToggleButton>
     </ToggleButtonGroup>
 
+
                 </Stack>
+
+                
+
 
             </Grid>
 

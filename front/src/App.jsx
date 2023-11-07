@@ -6,7 +6,9 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Slidebanner from './components/Slidebanner'
 import Product from './components/Product'
- 
+ import {BrowserRouter, Route,Routes} from 'react-router-dom'
+import { Slide } from '@mui/material'
+import Home from './components/Home'
 
 function App() {
    
@@ -14,7 +16,14 @@ function App() {
   return (
     <>
   <Navbar/>
-  <Product/>
+  <BrowserRouter>
+    <Routes>
+      <Route  path='/' element={ <Home/>  }  />
+      <Route  path='/product' element={ <Product/>  }  />
+
+    </Routes>
+  </BrowserRouter>
+   
     <Footer/>
  
   </>

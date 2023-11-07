@@ -3,11 +3,11 @@ import { Container, Link, Grid, Typography, IconButton, Box, TextField, Button, 
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 const Footer = () => {
   return (
-    <Container maxWidth="lg" sx={{
+    <Container  maxWidth="xl" sx={{
       padding: '4rem 0',
       border: "1px solid blue",
     }}  >
-      <Grid container sx={{
+      <Grid  gap={4} container sx={{
         border: "1px solid blue",
         height: "auto",
 
@@ -37,7 +37,7 @@ const Footer = () => {
         <Grid item lg={2}>
           <Typography variant="h6" gutterBottom color="initial">Quick Links</Typography>
           <Box display={"flex"} gap={1} flexDirection={"column"} >
-            <Link>About</Link>
+            <Link >About</Link>
             <Link>About</Link>
             <Link>About</Link>
             <Link>About</Link>
@@ -47,7 +47,7 @@ const Footer = () => {
 
         </Grid>
 
-        <Grid item lg={2} >
+        <Grid item lg={2.1} >
 
           <Typography variant="h6" color="initial" gutterBottom>Accounts</Typography>
           <Box display={"flex"} gap={1} flexDirection={"column"} >
@@ -60,10 +60,10 @@ const Footer = () => {
 
         </Grid>
 
-        <Grid item  >
+        <Grid item lg={4} >
 
           <Typography variant="h6" color="initial" gutterBottom >Newsletter</Typography>
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <TextField id="outlined-basic" label="Outlined" variant="outlined"  />
           <Button variant='contained'>Subscribe</Button>
           <Box>
             <IconButton aria-label="icon to other application"  >

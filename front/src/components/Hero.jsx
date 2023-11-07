@@ -4,7 +4,7 @@ import HeroPoster from '../assets/g.jpg'
 import HeroPoster2 from '../assets/a.jpg'
 import HeroPoster3 from '../assets/x.jpg'
 import HeroPoster4 from '../assets/z.jpg'
-import HeroPoster5 from '../assets/b.jpg'
+import HeroPoster5 from '../assets/ff.avif'
 
 
 const Hero = () => {
@@ -26,7 +26,7 @@ const Hero = () => {
                     width: "50%"
                 }} item lg={6}>
 
-                    <img src={HeroPoster} style={{
+                    <img src={HeroPoster5} style={{
                         minHeight: "100%",
                         opacity: ".7"
 
@@ -46,7 +46,7 @@ const Hero = () => {
                             fontSize: "3rem",
                             fontWeight: "800",
                             fontFamily: "Dancing Script,cursive"
-                        }} color="white">Women’s fashion</Typography>
+                        }} color="white">Men fashion</Typography>
 
                         <Typography variant="subtitle1" sx={{
                             zIndex: "33",
@@ -74,7 +74,7 @@ const Hero = () => {
                         maxHeight: "40vh",
                         position: "relative"
                     }} item lg={6}  >
-                        <img src={HeroPoster2} style={{
+                        <img src={HeroPoster3} style={{
                             width: "100%",
                             minHeight: "100%",
                             opacity: ".5"
