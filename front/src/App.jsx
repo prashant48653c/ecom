@@ -6,27 +6,31 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Slidebanner from './components/Slidebanner'
 import Product from './components/Product'
- import {BrowserRouter, Route,Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Slide } from '@mui/material'
 import Home from './components/Home'
+import Err from './components/Err'
 
 function App() {
-   
+
 
   return (
     <>
-  <Navbar/>
-  <BrowserRouter>
-    <Routes>
-      <Route  path='/' element={ <Home/>  }  />
-      <Route  path='/product' element={ <Product/>  }  />
-
-    </Routes>
-  </BrowserRouter>
    
-    <Footer/>
- 
-  </>
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/product' element={<Product />} />
+          <Route path='*' element={<Err />} />
+
+
+        </Routes>
+      </BrowserRouter>
+
+      <Footer />
+
+    </>
   )
 }
 

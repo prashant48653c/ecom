@@ -5,8 +5,10 @@ import React, { useState } from 'react'
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import HeroPoster4 from '../assets/dd.webp'
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 
 const Slidebanner = () => {
+  const navigate=useNavigate()
   const [show, setShow] = useState(false)
     let arr=[1,1,1,1,1,1,1,1]
   return (
@@ -53,7 +55,7 @@ const Slidebanner = () => {
                         transition:".2s ease-in"
                       
                     }} >
-                        <IconButton  disableRipple sx={{
+                        <IconButton onClick={()=>navigate("/product")} disableRipple sx={{
                           background:"white",
                           padding:"1rem",
                            
@@ -84,17 +86,7 @@ const Slidebanner = () => {
 
         </Grid>
 
-        <div className='img-wide-box'>
-          <img src={HeroPoster4} className='img-wide' alt="" />
-          <IconButton sx={{
-            top:"-2%",
-            left:"18%",
-            zIndex:111,
-            position:"absolute" 
-          }} color='info'  aria-label="plus counter"   >
-                 <AddIcon color='action' />
-                </IconButton>
-        </div>
+        
      
 
     </Container>

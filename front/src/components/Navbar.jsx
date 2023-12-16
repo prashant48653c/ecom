@@ -4,22 +4,27 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { Stack,Button, TextField, IconButton } from '@mui/material'
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+ import {motion} from 'framer-motion'
+import { NavLink } from 'react-router-dom'
+ 
 const Navbar = () => {
   return (
     <>
-    <AppBar elevation={0} position="sticky"  color="default">
+    <AppBar   elevation={0} position="sticky"  color="default">
       <Toolbar>
                 
-        <Typography variant="h6" flexGrow={1} >
-          Ecom
-        </Typography>
+    
+        
+       
 
         <Stack spacing={2} direction={"row"} flexGrow={1} >
-          <Button   variant='text' href='/' >Home</Button>
-          <Button   variant='text' href='/' >Home</Button>
-          <Button   variant='text' href='/' >Home</Button>
-          <Button   variant='text' href='/' >Home</Button>
-          <Button   variant='text' href='/' >Home</Button>
+         
+          <NavLink to="/product">Product</NavLink>
+          <NavLink to="/">home</NavLink>
+          <NavLink to="/sdf">random</NavLink>
+
+
+  
 
 
         </Stack>

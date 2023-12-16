@@ -6,10 +6,12 @@ import HeroPoster3 from '../assets/x.jpg'
 import HeroPoster4 from '../assets/z.jpg'
 import HeroPoster5 from '../assets/ff.avif'
 
-
+import {motion} from 'framer-motion'
+import { NavLink } from 'react-router-dom'
 const Hero = () => {
     return (
-        <Box mb={"3rem"} >
+        <motion.Box   initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }} mb={"3rem"} >
  
             <Grid container sx={{
                 userSelect: "none",
@@ -26,13 +28,13 @@ const Hero = () => {
                     width: "50%"
                 }} item lg={6}>
 
-                    <img src={HeroPoster5} style={{
+                    <motion.img  animate={{opacity:.7,x:0 }} src={HeroPoster5} style={{
                         minHeight: "100%",
-                        opacity: ".7"
+                       
 
                     }} alt="" />
 
-                    <Box sx={{
+                    <Box  sx={{
                         position: "absolute",
                         top: "50%",
                         left: "43%",
@@ -41,12 +43,8 @@ const Hero = () => {
                         zIndex: "11",
                         maxWidth: "90%"
                     }}>
-                        <Typography variant="h4" sx={{
-                            zIndex: "33",
-                            fontSize: "3rem",
-                            fontWeight: "800",
-                            fontFamily: "Dancing Script,cursive"
-                        }} color="white">Men fashion</Typography>
+                        <NavLink to={'/product'}>Product</NavLink>
+                         <motion.h2  transition={{ duration: 1 }}  dragConstraints={{ left: -100, right: 100  }} drag="x"    whileHover={{ scale: 1.2 }}  >Ecom</motion.h2>
 
                         <Typography variant="subtitle1" sx={{
                             zIndex: "33",
@@ -222,7 +220,7 @@ const Hero = () => {
             </Grid>
 
 
-        </Box>
+        </motion.Box>
     )
 }
 

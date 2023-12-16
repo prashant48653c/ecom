@@ -11,7 +11,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Slidebanner from './Slidebanner';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-
+import { Link } from 'react-router-dom';
 const Product = () => {
   const [alignment, setAlignment] = React.useState('left');
 

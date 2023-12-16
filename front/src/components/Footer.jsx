@@ -3,7 +3,7 @@ import { Container, Link, Grid, Typography, IconButton, Box, TextField, Button, 
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 const Footer = () => {
   return (
-    <Container  maxWidth="xl" sx={{
+    <Container   maxWidth="xl" sx={{
       padding: '4rem 0',
       border: "1px solid blue",
     }}  >

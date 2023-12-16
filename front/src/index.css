@@ -23,11 +23,6 @@
    visibility: visible;
    opacity: 1;
  }
- .img-wide-box{
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 25%;
-  left: 40%;
- 
+ .active{
+  color: aqua;
  }
