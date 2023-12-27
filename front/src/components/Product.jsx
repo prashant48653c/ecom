@@ -12,6 +12,17 @@ import Slidebanner from './Slidebanner';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+
+
+
 const Product = () => {
   const [alignment, setAlignment] = React.useState('left');
 
@@ -22,6 +33,26 @@ const Product = () => {
   if(count < 0){
     setcount(0)
   }
+
+const mutation=useMutation({
+  mutationFn:(newProduct)=>{
+    return Axios.post("https://fakestoreapi.com/products",newProduct)
+  }
+})
+
+
+
+
+
+if(mutation.isLoading){
+  console.log("Umm UMM loading")
+  return <div>Loading .....</div>
+}
+
+
+
+
+
   return (
     <Container >
 
@@ -100,7 +131,26 @@ const Product = () => {
 
         </Grid>
 
-        <Slidebanner/>
+       <button onClick={()=>{
+        mutation.mutate({
+          category
+          : 
+          "men's clothing",
+          description
+          : 
+          "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+          id
+          : 
+          4,
+          image
+          : 
+          "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+          price
+          : 
+          15.99
+        })
+       }} >Upload</button>
+ 
 
 
     </Container>

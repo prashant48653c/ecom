@@ -6,11 +6,35 @@ import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import HeroPoster4 from '../assets/dd.webp'
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
+
+
+
+const FetchProducts=async()=>{
+  const response=await axios.get("https://fakestoreapi.com/products")
+  console.log(response.data)
+return response.data
+}
 const Slidebanner = () => {
   const navigate=useNavigate()
   const [show, setShow] = useState(false)
-    let arr=[1,1,1,1,1,1,1,1]
+
+     
+    
+    const {isLoading,error,data:products}=useQuery({queryKey:["products"],queryFn:FetchProducts})
+if(isLoading){
+ return <div>Loading</div>
+}
+ 
+ if(products)
   return (
     <Container >
         
@@ -20,7 +44,7 @@ const Slidebanner = () => {
           
 
           {
-            arr.map((elem,i)=>{
+            products.map((product,i)=>{
              return   (
                     <Grid className='product-box' key={i} item lg={2.6} sx={{
                         border:"1px solid blue",
@@ -33,14 +57,14 @@ const Slidebanner = () => {
                         maxHeight:"25rem",
                         position:"relative",
                         marginBottom:"1rem"
-                    }} src={HeroPoster4} alt="" />
+                    }} src={product.image} alt="" />
                     <Box sx={{
                         display:"flex",
                         alignItems:"center",
                         flexDirection:"column",
                         
                     }} textAlign={"center"} >
-                    <Typography variant="p" fontSize={".8rem"} gutterBottom color="initial">IFit micro corduroy shirt</Typography>
+                    <Typography variant="p" fontSize={".8rem"} gutterBottom color="initial">{product.title}</Typography>
                     <Rating name="half-rating-read"  gutterBottom size='small' defaultValue={4.5} precision={0.5}   />
                     <Typography variant="subtitle2" my={1} color="initial"> <b> $ 29.0 </b> </Typography>
 
