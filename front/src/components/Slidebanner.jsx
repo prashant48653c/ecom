@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import HeroPoster4 from '../assets/dd.webp'
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'
 import {
   useQuery,
@@ -24,7 +24,9 @@ const FetchProducts=async()=>{
 return response.data
 }
 const Slidebanner = () => {
+
   const navigate=useNavigate()
+ 
   const [show, setShow] = useState(false)
 
      
@@ -33,7 +35,7 @@ const Slidebanner = () => {
 if(isLoading){
  return <div>Loading</div>
 }
- 
+ console.log(products)
  if(products)
   return (
     <Container >
@@ -79,19 +81,14 @@ if(isLoading){
                         transition:".2s ease-in"
                       
                     }} >
-                        <IconButton onClick={()=>navigate("/product")} disableRipple sx={{
+                        <IconButton onClick={()=>navigate(`/product/products/${product.id}`)} disableRipple sx={{
                           background:"white",
                           padding:"1rem",
                            
                         }} aria-label="buy now icon" >
                         <ShoppingCartIcon color='primary' />   
                         </IconButton  >
-                        <IconButton  onClick={()=>setShow(true)} disableRipple sx={{
-                          background:"white",
-                          padding:"1rem"
-                        }} aria-label="buy now icon" >
-                        <ZoomOutMapIcon/>  
-                        </IconButton>
+                      
                     </Box>
     
                     </Box>

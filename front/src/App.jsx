@@ -21,8 +21,8 @@ function App() {
       <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/product' element={<Product />} />
-          <Route path='*' element={<Err />} />
+          <Route path='/product/products/:id' element={<Product />} />
+           
 
 
         </Routes>

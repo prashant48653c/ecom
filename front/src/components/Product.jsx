@@ -11,48 +11,64 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Slidebanner from './Slidebanner';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   useQuery,
-  useMutation,
+ 
   useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-
+import axios from 'axios'
 
 
 
 const Product = () => {
+
+
+  const params=useParams()
+  
+
+     
+
+
+const fetchSingleProduct=async()=>{
+  const res=await axios.get(`https://fakestoreapi.com/products/${params.id}`)
+  console.log(res)
+  return res.data
+}
+
+
+const singleProduct=useQuery({
+  queryKey:["product",params.id],
+  queryFn:fetchSingleProduct
+})
+console.log(params)
+
+
+
+
+
+
   const [alignment, setAlignment] = React.useState('left');
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
-  const [count, setcount] = useState(0)
-  if(count < 0){
-    setcount(0)
+
+ 
+ 
+
+
+ 
+ 
+
+
+  if(singleProduct.isLoading){
+    return <div>Product Details are loading...</div>
   }
 
-const mutation=useMutation({
-  mutationFn:(newProduct)=>{
-    return Axios.post("https://fakestoreapi.com/products",newProduct)
-  }
-})
-
-
-
-
-
-if(mutation.isLoading){
-  console.log("Umm UMM loading")
-  return <div>Loading .....</div>
-}
-
-
-
-
-
+if(singleProduct.data){
   return (
     <Container >
 
@@ -62,7 +78,7 @@ if(mutation.isLoading){
 
             <Grid item lg={5} >
 
-            <img src={HeroPoster5} style={{
+            <img src={singleProduct.data.image} style={{
                maxHeight:"25rem"
             }} alt="" />
 
@@ -70,20 +86,17 @@ if(mutation.isLoading){
             </Grid>
 
             <Grid item lg={6}>
-                <Typography variant="h5" gutterBottom color="initial">Casio SA-46 32 Mini Keys Musical Keyboard with Piano tones, Black/Green</Typography>
+                <Typography variant="h5" gutterBottom color="initial">
+                  
+                {singleProduct.data.title}
+                </Typography>
                 <Typography variant="body1" color="initial">Brand:Logitech</Typography>
 
                 
                 <Rating name="half-rating-read" defaultValue={4.5} precision={0.5}   />
-                <Typography variant="h6"  color="initial">$49</Typography>
+                <Typography variant="h6"  color="initial">${singleProduct.data.price}</Typography>
                 <Typography variant="body1"  color="initial">Inclusive of all taxes</Typography>
-                <IconButton aria-label="minus counter" onClick={()=>setcount(count-1)} >
-                  <RemoveIcon/>
-                </IconButton>
-                 <span style={{padding:"1rem"}} >{count}</span>
-                <IconButton  aria-label="plus counter" onClick={()=>setcount(count+1)}  >
-                 <AddIcon/>
-                </IconButton>
+              
                 <br/>
                 <Button disableElevation variant='contained' startIcon={<ShoppingCartIcon/>} size='large' >Add to cart</Button>
 
@@ -131,30 +144,13 @@ if(mutation.isLoading){
 
         </Grid>
 
-       <button onClick={()=>{
-        mutation.mutate({
-          category
-          : 
-          "men's clothing",
-          description
-          : 
-          "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
-          id
-          : 
-          4,
-          image
-          : 
-          "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-          price
-          : 
-          15.99
-        })
-       }} >Upload</button>
- 
+      
 
 
     </Container>
   )
+}
+ 
 }
 
 export default Product
