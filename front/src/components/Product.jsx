@@ -97,7 +97,7 @@ if(singleProduct.data){
                 <Typography variant="h6"  color="initial">${singleProduct.data.price}</Typography>
                 <Typography variant="body1"  color="initial">Inclusive of all taxes</Typography>
               
-                <br/>
+              
                 <Button disableElevation variant='contained' startIcon={<ShoppingCartIcon/>} size='large' >Add to cart</Button>
 
 
